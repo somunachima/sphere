@@ -41,4 +41,21 @@ renderer.render(scene, camera)
 
 
 
-//resize
+//Resize Window
+window.addEventListener('resize', () => {
+  //Update Window Sizes
+  //console.log(window.innerWidth)
+  sizes.width = window.innerWidth
+  sizes.height = window.innerHeight
+
+  //Update Camera
+  camera.aspect = sizes.width / sizes.height
+  camera.updateProjectionMatrix()
+  renderer.setSize(sizes.width, sizes.height)
+})
+
+const loop = () => {
+  renderer.render(scene, camera)
+  window.requestAnimationFrame(loop)
+}
+loop()
