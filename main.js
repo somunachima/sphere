@@ -67,3 +67,6 @@ const loop = () => {
   window.requestAnimationFrame(loop)
 }
 loop()
+
+//Timeline Animation
+
