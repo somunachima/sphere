@@ -44,7 +44,8 @@ renderer.render(scene, camera)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 controls.enablePan = false
-
+controls.enableZoom = false
+controls.autoRotate = true
 
 //Resize Window
 window.addEventListener('resize', () => {
