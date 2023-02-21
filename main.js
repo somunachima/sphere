@@ -1,4 +1,5 @@
 import * as THREE from './node_modules/three/src/Three.js';
+import "./style.css"
 
 //Scene
 const scene = new THREE.Scene();
@@ -13,7 +14,8 @@ scene.add(mesh)
 
 //Sizes
 const sizes = {
-  width 
+  width: window.innerWidth,
+  height: window.innerHeight
 }
 
 //Light
@@ -22,12 +24,21 @@ light.position.set(0, 10, 10)
 scene.add(light)
 
 //Camera
-const camera = new THREE.PerspectiveCamera(45, 800 / 600, 0.1, 100)
+const camera = new THREE.PerspectiveCamera(
+  45,
+  sizes.width / sizes.height,
+  0.1,
+  100
+  )
 camera.position.z = 20
 scene.add(camera)
 
 //Renderer
 const canvas = document.querySelector('.webgl')
 const renderer = new THREE.WebGLRenderer({ canvas })
-renderer.setSize(800, 600)
+renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
+
+
+
+//resize
